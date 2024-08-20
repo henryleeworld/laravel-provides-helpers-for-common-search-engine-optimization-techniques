@@ -10,13 +10,13 @@ class WelcomeController extends Controller
 
     public function index()
     {
-        $this->seo()->setTitle('亨利的世界', false);
+        $this->seo()->setTitle(config('app.name'), false);
         $this->seo()->metatags()->addMeta('title', '');
-        $this->seo()->metatags()->addMeta('author', '李亨利');
-        $this->seo()->setDescription('李亨利 - 分享程式設計開發、體育、動漫及遊戲各類最新大小事，有興趣的事物皆會追蹤，讓自己有前進的力量。');
+        $this->seo()->metatags()->addMeta('author', __('Henry Lee'));
+        $this->seo()->setDescription(__(':name - Share the latest events in programming development, sports, animation, and games. You will track everything you are interested in, so that you have the power to move forward.', ['name' => __('Henry Lee')]));
         $this->seo()->opengraph()->setUrl('https://henrywar.blogspot.com/');
         $this->seo()->opengraph()->addProperty('type', 'articles');
-        $this->seo()->twitter()->setSite('亨利的世界');
+        $this->seo()->twitter()->setSite(config('app.name'));
         $this->seo()->jsonLd()->setType('Article');
         return view('welcome');
     }
